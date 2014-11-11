@@ -128,14 +128,14 @@
             var resultStr = '';
             var startInChars = 0;
 
-            for (bytePos = 0; bytePos < startInBytes; startInChars++) {
-                ch = str.charCodeAt(startInChars);
+            for (var bytePos = 0; bytePos < startInBytes; startInChars++) {
+                var ch = str.charCodeAt(startInChars);
                 bytePos += (ch < 128) ? 1 : encode_utf8(str.charAt(startInChars)).length;
             }
 
-            end = startInChars + lengthInBytes - 1;
-            for (n = startInChars; startInChars <= end; n++) {
-                ch = str.charCodeAt(n);
+            var end = startInChars + lengthInBytes - 1;
+            for (var n = startInChars; startInChars <= end; n++) {
+                var ch = str.charCodeAt(n);
                 end -= (ch < 128) ? 1 : encode_utf8(str.charAt(n)).length;
                 if(end < -1) break;
                 resultStr += str.charAt(n);
